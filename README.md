@@ -37,6 +37,42 @@ Each topic has two kinds of notebooks:
 | 23 | Gaussian Mixture Models | [23_Gaussian_Mixture_Models_Notes.ipynb](23_Gaussian_Mixture_Models_Notes.ipynb) | [23_Gaussian_Mixture_Models.ipynb](23_Gaussian_Mixture_Models.ipynb) |
 | 24 | Principal Component Analysis | [24_PCA_Notes.ipynb](24_PCA_Notes.ipynb) | [24_PCA.ipynb](24_PCA.ipynb) |
 
+## Practical Workflow
+
+[25_End_to_End_Workflow.ipynb](25_End_to_End_Workflow.ipynb) combines missing-value
+imputation, categorical encoding, `ColumnTransformer`, fold-local preprocessing,
+a baseline, cross-validation, hyperparameter search, and final held-out evaluation.
+The data is generated locally and requires no download.
+
+## Setup and Checks
+
+Use Python 3.11 (the CI version):
+
+```sh
+python3.11 -m venv .venv
+source .venv/bin/activate
+python -m pip install -r requirements.txt
+jupyter lab
+```
+
+On macOS, LightGBM may require the OpenMP runtime (`brew install libomp`).
+
+```sh
+python scripts/check_notebooks.py --validate-only
+python scripts/check_notebooks.py
+```
+
+The full check validates every notebook and executes notebooks containing code in
+fresh kernels and temporary working directories. All three external boosting
+libraries are required so their examples cannot silently skip execution. Failures
+produce a nonzero exit status. Executed notebooks, including outputs, are saved
+under `artifacts/executed/`; GitHub Actions runs the same check and uploads these
+as downloadable artifacts. Source notebooks stay output-free. Execution checks
+detect runtime failures, not every statistical or conceptual mistake.
+
+The Ridge, Lasso, Elastic Net, and KNN companions select hyperparameters using
+training-fold cross-validation, then evaluate the selected model on held-out data.
+
 ## Learning Style
 
 The notes are written for understanding from first principles. They avoid short revision-note formatting and keep code in separate notebooks. The code notebooks are meant to support the theory with clean, runnable examples.
