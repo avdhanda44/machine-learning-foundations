@@ -11,6 +11,7 @@ Each topic has two kinds of notebooks:
 
 | No. | Topic | Notes | Code |
 | --- | --- | --- | --- |
+| 00 | Algorithms Introduction | [00_Algorithms_Introduction.ipynb](00_Algorithms_Introduction.ipynb) | - |
 | 01 | Automated EDA | [01_Automated_EDA_Notes.ipynb](01_Automated_EDA_Notes.ipynb) | [01_Automated_EDA.ipynb](01_Automated_EDA.ipynb) |
 | 02 | Linear Regression | [02_Linear_Regression_Notes.ipynb](02_Linear_Regression_Notes.ipynb) | [02_Linear_Regression.ipynb](02_Linear_Regression.ipynb) |
 | 03 | Ridge Regression | [03_Ridge_Regression_Notes.ipynb](03_Ridge_Regression_Notes.ipynb) | [03_Ridge_Regression.ipynb](03_Ridge_Regression.ipynb) |
